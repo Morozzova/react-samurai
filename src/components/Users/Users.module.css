@@ -1,0 +1,29 @@
+.usersWrapper {
+    padding: 10px;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 20px;
+}
+.usersLeft {
+    margin-right: 10px;
+    flex-shrink: 0;
+    text-align: center;
+}
+.usersRight {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.userPhoto {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.usersLocation {
+    width: 150px;
+}

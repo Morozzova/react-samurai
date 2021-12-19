@@ -1,0 +1,18 @@
+.paginatorList {
+    margin-bottom: 15px;
+}
+.paginatorList span {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid grey;
+}
+.paginatorList span.selectedPage {
+    font-weight: bold;
+    border: 1px solid #000;
+}
+.prevButton {
+    margin-right: 5px;
+}
+.nextButton {
+    margin-left: 5px;
+}

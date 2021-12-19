@@ -1,0 +1,12 @@
+.friendItem img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.friendItem a {
+    display: block;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
