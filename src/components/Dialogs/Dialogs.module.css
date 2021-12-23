@@ -1,15 +1,14 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    grid-column-gap: 10px;
 }
 
 .dialogsList {
-    padding: 10px;
     border-right: 1px dotted darkslateblue;
 }
 
 .messagesList {
-    padding: 10px;
 }
 .form {
     margin-top: 20px;

@@ -12,7 +12,7 @@ const Login = (props) => {
     }
     const onSubmitFormik = (formData, actions) => {
         actions.setStatus(undefined);
-        props.loginOnSite(formData.login, formData.password, formData.rememberMe, actions);
+        props.loginOnSite(formData.login, formData.password, formData.rememberMe, formData.captcha, actions);
     }
     if (props.isAuth) {
         return <Navigate to={"/profile"}/>
@@ -23,7 +23,7 @@ const Login = (props) => {
             <h1>Login</h1>
             <LoginReduxForm onSubmit={onSubmit}/>
 
-            <LoginFormik onSubmitFormik={onSubmitFormik}/>
+            <LoginFormik onSubmitFormik={onSubmitFormik} captchaUrl={props.captchaUrl}/>
         </div>
     )
 }

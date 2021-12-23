@@ -1,14 +1,16 @@
 import {useFormik} from "formik";
 import * as Yup from "yup";
-import React from "react";
+import React, {useState} from "react";
 import s from "./Login.module.css";
 
 const LoginFormik = (props) => {
+
     const formik = useFormik({
         initialValues: {
             login: "",
             password: "",
-            rememberMe: false
+            rememberMe: false,
+            captcha: null
         },
         validationSchema: Yup.object({
             login: Yup.string().required("Введите логин")
@@ -60,10 +62,15 @@ const LoginFormik = (props) => {
                         onBlur={formik.handleBlur}
                         value={formik.values.rememberMe}/>
                 </div>
-{/*                {props.getCaptcha && <div>{props.getCaptcha}</div>}*/}
+                {props.captchaUrl && <img src={props.captchaUrl}/>}
+                {props.captchaUrl && <div><input type="text" name="captcha"
+                                                 id="captcha" required onChange={formik.handleChange}
+                                                 onBlur={formik.handleBlur}
+                                                 value={formik.values.captcha}/></div>}
                 {formik.status && <div className={s.formSummaryError}>
                     {formik.status}
                 </div>}
+
                 <div>
                     <button type="submit">Login</button>
                 </div>

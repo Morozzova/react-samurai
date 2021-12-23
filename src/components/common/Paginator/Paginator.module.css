@@ -1,12 +1,12 @@
 .paginatorList {
     margin-bottom: 15px;
 }
-.paginatorList span {
+.pageNumber {
     display: inline-block;
     padding: 5px;
     border: 1px solid grey;
 }
-.paginatorList span.selectedPage {
+.pageNumber.selectedPage {
     font-weight: bold;
     border: 1px solid #000;
 }

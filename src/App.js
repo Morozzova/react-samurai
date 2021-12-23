@@ -11,14 +11,28 @@ import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+import NotFound from "./components/common/NotFound/NotFound";
+import {Navigate} from "react-router";
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
 class App extends Component {
+
+    catchAllUnhandledErrors = (reason,promise) => {
+        alert(promise);
+
+    }
+
     componentDidMount() {
         this.props.initializeApp();
+
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors);
     }
 
     render() {
@@ -32,6 +46,7 @@ class App extends Component {
                 <div className='app-wrapper-content'>
                     <Suspense fallback={<Preloader/>}>
                         <Routes>
+                            <Route path="/" element={<Navigate to="/profile" />}/>
 
                             <Route path="/profile/*" element={<ProfileContainer
                             />}/>
@@ -42,7 +57,7 @@ class App extends Component {
                             <Route path="/users/*" element={<UsersContainer/>}/>
                             <Route path="/settings/*" element={<Settings/>}/>
                             <Route path="/login/*" element={<LoginContainer/>}/>
-
+                            <Route path="*" element={<NotFound/>}/>
                         </Routes>
                     </Suspense>
                 </div>
@@ -56,6 +71,8 @@ const mapStateToProps = (state) => ({
 })
 
 let AppContainer = connect(mapStateToProps, {initializeApp})(App);
+
+
 
 const SamuraiJSApp = (props) => {
     return (

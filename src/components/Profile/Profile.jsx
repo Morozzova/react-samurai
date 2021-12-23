@@ -5,7 +5,15 @@ import React from "react";
 
 const Profile = (props) => {
     return <div className={s.content}>
-        <ProfileInfo profile={props.profile} updateStatus={props.updateStatus} status={props.status} />
+        <ProfileInfo profile={props.profile}
+                     updateStatus={props.updateStatus}
+                     status={props.status}
+                     isOwner={props.isOwner}
+                     savePhoto={props.savePhoto}
+                     updateProfile={props.updateProfile}
+                     authorizedUserId={props.authorizedUserId}
+                     toggleEditMode={props.toggleEditMode}
+                     infoEditMode={props.infoEditMode}/>
         <MyPostsContainer />
     </div>
 }

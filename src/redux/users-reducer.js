@@ -1,5 +1,6 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/object-helpers";
+import React from "react";
 
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";

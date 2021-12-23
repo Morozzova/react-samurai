@@ -1,5 +1,5 @@
 import s from "./Users.module.css";
-import userPhoto from "../../assets/images/user.png";
+import noAvatar from "../../assets/images/no-avatar.png";
 import React from "react";
 import {NavLink} from "react-router-dom";
 
@@ -9,7 +9,7 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
             <div className={s.usersLeft}>
                 <div>
                     <NavLink to={'/profile/' + user.id}>
-                        <img className={s.userPhoto} src={user.photos.small != null ? user.photos.small : userPhoto}/>
+                        <img className={s.userPhoto} src={user.photos.small != null ? user.photos.small : noAvatar}/>
                     </NavLink>
                 </div>
                 <div>
